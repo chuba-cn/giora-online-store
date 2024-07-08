@@ -12,7 +12,7 @@ const NewsLetter = () => {
           className="p-2 rounded-3xl bg-background-normal text-texts-normal focus-visible:outline-none"
         />
 
-        <Button className='font-nunitosans text-[1rem] text-backgrounds-light bg-green-primary-dark border border-green-primary-normal'>
+        <Button className='font-nunitosans text-[1rem] text-backgrounds-light bg-green-primary-dark border border-green-primary-normal hover:bg-green-primary-normal'>
             Subscribe
         </Button>
       </div>

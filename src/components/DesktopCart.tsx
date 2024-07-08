@@ -1,11 +1,17 @@
+"use client"
+
 import Image from "next/image";
 import CheckoutCardList from "./CheckoutCardList";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
 import { paypal } from "../../public/assets";
 import { paymentMethod } from "@/constants";
+import { useRouter } from "next/navigation";
 
 const DesktopCart = () => {
+
+  const router = useRouter();
+
   return (
     <MaxWidthWrapper className="py-8">
       <div className="grid grid-cols-2 space-x-5 w-full">
@@ -53,7 +59,7 @@ const DesktopCart = () => {
               </div>
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Shipping</p>
-                <p>free</p>
+                <p className="font-nunito">Free</p>
               </div>
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Add Promo Code</p>
@@ -66,10 +72,16 @@ const DesktopCart = () => {
             </div>
 
             <div className="flex flex-col gap-4 justify-between w-full">
-              <Button className="p-4 border border-green-primary-normal bg-green-primary-normal text-backgrounds-light hover:bg-green-primary-dark transition-all">
+              <Button 
+                className="p-4 border border-green-primary-normal bg-green-primary-normal text-backgrounds-light hover:bg-green-primary-dark transition-all"
+                onClick={() => router.push("/checkout")}
+              >
                 Check Out
               </Button>
-              <Button className="p-4 bg-backgrounds-ligh border border-green-primary-normal hover:bg-white transition-all">
+              <Button 
+                className="p-4 bg-backgrounds-ligh border border-green-primary-normal hover:bg-white transition-all"
+                onClick={() => router.push("/checkout")}
+              >
                 <Image src={paypal} alt="paypal logo" />
               </Button>
             </div>

@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Giora",
+  title: "Giora Online Store",
   description: "Luxury Fashion E-Shop",
   icons:{
     icon: '/assets/images/Giora.png' 

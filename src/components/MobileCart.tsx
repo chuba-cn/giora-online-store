@@ -1,18 +1,24 @@
+"use client"
+
 import { paypal } from "../../public/assets";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import CheckoutCardList from "./CheckoutCardList";
 import { paymentMethod } from "@/constants";
+import { useRouter } from "next/navigation";
 
 const MobileCart = () => {
+
+  const router = useRouter();
+
   return (
     <MaxWidthWrapper className="py-6">
       <div className="grid grid-cols-1 space-y-8 w-full">
         {/* Cart details */}
         <div className="flex flex-col gap-4">
           {/* Cart info */}
-          <div className="flex flex-col items-start justify-between gap-6">
+          <div className="flex justify-between gap-6 w-full">
             <div className="flex flex-col items-start justify-between gap-2">
               <p className="font-sans font-bold text-[1.5rem] text-black">
                 My Cart
@@ -53,7 +59,7 @@ const MobileCart = () => {
               </div>
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Shipping</p>
-                <p>free</p>
+                <p className="font-nunito">Free</p>
               </div>
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Add Promo Code</p>
@@ -66,10 +72,16 @@ const MobileCart = () => {
             </div>
 
             <div className="flex flex-col gap-4 justify-between w-full">
-              <Button className="p-4 border border-green-primary-normal bg-green-primary-normal text-backgrounds-light hover:bg-green-primary-dark transition-all">
+              <Button
+                className="p-4 border border-green-primary-normal bg-green-primary-normal text-backgrounds-light hover:bg-green-primary-dark transition-all"
+                onClick={() => router.push("/checkout")}
+              >
                 Check Out
               </Button>
-              <Button className="p-4 bg-backgrounds-ligh border border-green-primary-normal hover:bg-white transition-all">
+              <Button 
+                className="p-4 bg-backgrounds-light border border-green-primary-normal hover:bg-gray-300 transition-all"
+                onClick={() => router.push("/checkout")}
+              >
                 <Image src={paypal} alt="paypal logo" />
               </Button>
             </div>

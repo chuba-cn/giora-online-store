@@ -1,10 +1,16 @@
-import { navbarIcons, navigation } from "@/constants";
+"use client"
+
+import {  navigation } from "@/constants";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
+import { Heart, ShoppingCart, UserRound } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const DesktopNav = () => {
+  const pathname = usePathname();
+  const isActive = pathname === "/cart" || pathname.startsWith("/cart");
+
   return (
     <nav className="flex flex-row items-center justify-between">
       <Link href='/' className="basis-auto">
@@ -31,15 +37,17 @@ const DesktopNav = () => {
           <SearchInput />
         </div>
         <div className="flex items-center justify-between space-x-3">
-          {navbarIcons.map((icon) => (
-            <Link
-              key={icon.id}
-              href={icon.href}
-              className="flex items-center justify-center"
-            >
-              <Image src={icon.icon} alt="page icons" />
-            </Link>
-          ))}
+          <Link href="#">
+          <Heart className="h-6 w-6 hover:text-green-primary-normal"/>
+          </Link>
+          <Link href="#">
+            <UserRound className="h-6 w-6 hover:text-green-primary-normal"/>
+          </Link>
+          <Link href="/cart">
+            <ShoppingCart className={cn("h-6 w-6 hover:text-green-primary-normal", {
+            "text-green-primary-normal" : isActive
+          })}/>
+          </Link>
         </div>
       </div>
     </nav>

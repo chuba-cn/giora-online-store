@@ -10,7 +10,7 @@ export default function Home() {
         <aside className="hidden lg:block lg:col-span-2 py-8  pr-9 border-r-2 border-gray-500">
           <Sidebar />
         </aside>
-        <main className="lg:col-span-9 pl-8 py-6 lg:py-10">
+        <main className="lg:col-span-9">
           <MainContent />
         </main>
       </div>

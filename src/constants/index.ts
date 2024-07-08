@@ -105,10 +105,6 @@ export const sidebarStyle = [
 
 export const sidebarColor =[
     {
-        id: 0,
-        color: tickCircle, 
-    },
-    {
         id: 1,
         color: SKYBLUE,
     },

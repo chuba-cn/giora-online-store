@@ -1,4 +1,5 @@
 import { sidebarCategory, sidebarColor, sidebarStyle } from "@/constants";
+import { cn } from "@/lib/utils";
 import { ChevronUp, CircleCheck } from "lucide-react";
 import Link from "next/link";
 
@@ -16,7 +17,7 @@ const Sidebar = () => {
             <Link
               href={"/"}
               key={category.id}
-              className="font-nunitosans hover:text-green-primary-normal transition-colors"
+              className={cn("font-nunitosans hover:text-green-primary-normal transition-colors", category.title.startsWith("Dresses") && "text-green-primary-normal")}
             >
               {category.title}
             </Link>

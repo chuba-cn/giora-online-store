@@ -29,7 +29,7 @@ const MobileSubNav = () => {
             </SheetTrigger>
             <SheetContent
               side="left"
-              className="border-none bg-backgrounds-light w-[360px]"
+              className="border-none bg-backgrounds-light w-[300px] overflow-scroll"
             >
               <section className="flex flex-col items-start justify-between space-y-8">
                 <div className="flex flex-col space-y-4 items-start justify-start">

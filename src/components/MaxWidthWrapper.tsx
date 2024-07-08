@@ -17,5 +17,3 @@ const MaxWidthWrapper = ({ className, children }: MaxWidthWrapperProps) => {
 };
 
 export default MaxWidthWrapper;
-
-// max-w-[1440px]

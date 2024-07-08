@@ -41,6 +41,13 @@ import product10OnHover from './images/Product-10-02.png'
 import product11OnHover from './images/Product-11-02.png'
 import product12OnHover from './images/Product-12-02.png'
 
+import paypal from './images/download 1.png';
+import amex from './images/Payment Method/Amex.png';
+import applePay from './images/Payment Method/ApplePay.png';
+import googlePay from './images/Payment Method/GooglePay.png';
+import mastercard from './images/Payment Method/Mastercard.png';
+import visa from './images/Payment Method/Visa.png'
+
 export {
     arrowRight,
     arrowUp,
@@ -82,4 +89,10 @@ export {
     product10OnHover,
     product11OnHover,
     product12OnHover,
+    paypal,
+    amex,
+    applePay,
+    googlePay,
+    mastercard,
+    visa
 }

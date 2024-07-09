@@ -5,8 +5,6 @@ import { useState } from "react";
 import { ChevronDown, MinusCircle, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/16/solid";
-import {HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 
 const CheckoutProductCard = ({
     title,
@@ -18,11 +16,9 @@ const CheckoutProductCard = ({
     qty,
 }: CartItem) => {
 
-  const [heartIconHover, setHeartIconHover] = useState(false);
-
   return (
     <div className="py-6 flex justify-start gap-6 border-b border-b-gray-400">
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-center items-center relative ">
         <Image
           src={imgUrl}
           alt="product image"
@@ -32,7 +28,7 @@ const CheckoutProductCard = ({
       </div>
 
       {/* Product Detail */}
-      <div className="flex flex-col justify-between gap-2">
+      <div className="flex flex-col gap-3">
         <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">{title}</p>
         {
           tag && (

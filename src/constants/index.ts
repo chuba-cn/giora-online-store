@@ -36,8 +36,7 @@ import {
   userIcon,
   visa,
   whatsapp,
-  youtube,
-  paypal,
+  youtube
 } from "../../public/assets";
 
 const SKYBLUE = "#0CE5DD";
@@ -61,7 +60,7 @@ export const navigation = [
   {
     id: 1,
     title: "Women",
-    url: "#women",
+    url: "/",
   },
   {
     id: 2,

@@ -4,7 +4,7 @@ import { CartItem } from "@/constants";
 import { useState } from "react";
 import { ChevronDown, MinusCircle, PlusCircle } from "lucide-react";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const CheckoutProductCard = ({
     title,

@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 const DesktopNav = () => {
   const pathname = usePathname();
   const isActive = pathname === "/cart" || pathname.startsWith("/cart");
+  const isListingPage = pathname === "/";
 
   return (
     <nav className="flex flex-row items-center justify-between">
@@ -23,8 +24,8 @@ const DesktopNav = () => {
               <Link
                 href={item.url}
                 className={cn(
-                  "text-texts-normal text-xl hover:text-green-primary-normal hover:border-b-[3px] hover:border-b-green-primary-normal transition-colors",
-                  item.id === 1 &&
+                  "text-texts-normal text-xl hover:text-green-primary-normal transition-colors",
+                  (isListingPage && item.url === "/") && 
                     "border-b-[3px] text-green-primary-normal border-b-green-primary-normal font-bold "
                 )}
               >

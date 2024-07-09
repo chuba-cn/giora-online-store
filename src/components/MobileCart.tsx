@@ -4,7 +4,7 @@ import { paypal } from "../../public/assets";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import CheckoutCardList from "./CheckoutCardList";
+import CheckoutCardList from "./checkoutPage/CheckoutCardList";
 import { paymentMethod } from "@/constants";
 import { useRouter } from "next/navigation";
 

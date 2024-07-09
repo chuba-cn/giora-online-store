@@ -18,7 +18,7 @@ const PaymentOptions = () => {
       <div className="flex gap-4 justify-start w-full">
         <Button className=" text-[1rem] font-nunitosans border border-green-primary-normal rounded-md p-4 hover:bg-green-primary-light bg-white text-green-primary-normal">
           <CreditCardIcon className="h-6 w-6 text-green-primary-normal mr-2" />{" "}
-          Delivery
+          Debit Card
         </Button>
         <Button className=" text-[1rem] border font-nunitosans border-green-primary-normal rounded-md p-4 hover:bg-green-primary-light bg-white text-green-primary-normal">
           <Image

@@ -6,7 +6,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <MaxWidthWrapper className="py-6 lg:py-10 bg-green-primary-normal text-backgrounds-light">
-      <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-32 mb-10">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-12 md:gap-16 lg:gap-32 mb-10">
         {footer.map((section) => (
           <div
             key={section.id}
@@ -30,6 +30,7 @@ const Footer = () => {
                   alt="socials icons"
                   width={24}
                   height={24}
+                  className="w-auto max-w-full h-auto"
                 />
               </div>
             ))}

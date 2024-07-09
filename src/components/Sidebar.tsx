@@ -17,7 +17,7 @@ const Sidebar = () => {
             <Link
               href={"/"}
               key={category.id}
-              className={cn("font-nunitosans hover:text-green-primary-normal transition-colors", category.title.startsWith("Dresses") && "text-green-primary-normal")}
+              className={cn("font-nunitosans hover:text-green-primary-normal transition-colors", category.title.startsWith("Dresses") && "text-green-primary-dark font-bold")}
             >
               {category.title}
             </Link>

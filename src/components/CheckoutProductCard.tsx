@@ -47,13 +47,13 @@ const CheckoutProductCard = ({
 
       {/* Product Detail */}
       <div className="flex flex-col justify-between gap-2">
-        <p className="font-nunito font-bold text-texts-normal text-[1.25rem]">{title}</p>
+        <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">{title}</p>
         {
           tag && (
-            <p className="font-nunito font-bold text-brown-1 text-[1.25rem]">{tag}</p>
+            <p className="font-nunito font-bold text-brown-1 text-[0.75rem] lg:text-[1.25rem]">{tag}</p>
           )
         }
-        <p className="font-nunito font-bold text-texts-normal text-[1.25rem]">{price}</p>
+        <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">{price}</p>
         <div className="flex gap-1 text-sm">
           <p className="font-nunitosans text-texts-normal">{color}</p>
           <p className="text-gray-400">|</p>

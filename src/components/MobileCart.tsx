@@ -19,19 +19,19 @@ const MobileCart = () => {
         <div className="flex flex-col gap-4">
           {/* Cart info */}
           <div className="flex justify-between gap-6 w-full">
-            <div className="flex flex-col items-start justify-between gap-2">
-              <p className="font-sans font-bold text-[1.5rem] text-black">
+            <div className="flex flex-col items-start justify-between gap-1">
+              <p className="font-sans font-bold text-[1.25rem] text-black">
                 My Cart
               </p>
-              <p className="font-nunito text-texts-normal text-[1.25rem] font-normal">
+              <p className="font-nunito text-texts-normal text-[1rem] font-normal">
                 Subtotal $160
               </p>
             </div>
-            <div className="flex flex-col items-start justify-between gap-2">
-              <p className="font-nunito font-bold text-texts-normal text-[1.25rem]">
+            <div className="flex flex-col items-start justify-between gap-1">
+              <p className="font-nunito font-bold text-texts-normal text-[0.75rem]">
                 Shopping Bag
               </p>
-              <p className="font-nunitosans text-black text-[1rem] font-normal">
+              <p className="font-nunitosans text-black text-[0.75rem] font-normal">
                 2 Items
               </p>
             </div>
@@ -47,25 +47,25 @@ const MobileCart = () => {
         <div>
           <div className="py-5 rounded-md flex flex-col items-center justify-center gap-8">
             <div className="p-2 border-b-[3px] border-texts-normal">
-              <p className="font-sans font-bold text-texts-normal text-[1.5rem]">
+              <p className="font-sans font-bold text-texts-normal text-[1.25rem]">
                 Cart Summary
               </p>
             </div>
 
             <div className="flex flex-col justify-between gap-6 w-full">
-              <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
+              <div className="w-full flex justify-between font-nunito font-normal text-[0.75rem] text-texts-normal">
                 <p>Sub-total</p>
                 <p>$160</p>
               </div>
-              <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
+              <div className="w-full flex justify-between font-nunito font-normal text-[0.75rem] text-texts-normal">
                 <p>Shipping</p>
                 <p className="font-nunito">Free</p>
               </div>
-              <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
+              <div className="w-full flex justify-between font-nunito font-normal text-[0.75rem] text-texts-normal">
                 <p>Add Promo Code</p>
                 <p>$160</p>
               </div>
-              <div className="w-full flex justify-between font-nunito font-bold text-[1.25rem] text-texts-normal">
+              <div className="w-full flex justify-between font-nunito font-bold text-[0.75rem] text-texts-normal">
                 <p>Total</p>
                 <p>$160</p>
               </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import {  navigation } from "@/constants";
+import { navigation } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
@@ -23,7 +23,7 @@ const DesktopNav = () => {
               <Link
                 href={item.url}
                 className={cn(
-                  "text-texts-normal text-xl hover:text-green-primary-normal hover:border-b-[3px] hover: border-b-green-primary-normal transition-colors",
+                  "text-texts-normal text-xl hover:text-green-primary-normal hover:border-b-[3px] hover:border-b-green-primary-normal transition-colors",
                   item.id === 1 &&
                     "border-b-[3px] text-green-primary-normal border-b-green-primary-normal font-bold "
                 )}
@@ -38,7 +38,7 @@ const DesktopNav = () => {
         </div>
         <div className="flex items-center justify-between space-x-3">
           <Link href="#">
-          <Heart className="h-6 w-6 hover:text-green-primary-normal"/>
+            <Heart className="h-6 w-6 hover:text-green-primary-normal"/>
           </Link>
           <Link href="#">
             <UserRound className="h-6 w-6 hover:text-green-primary-normal"/>

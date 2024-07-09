@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
-    <MaxWidthWrapper className="py-6 lg:py-10 bg-green-primary-light fixed top-0 w-full z-50">
+    <MaxWidthWrapper className="py-6 lg:py-10 bg-green-primary-light ">
       {/* Desktop Navbar */}
       <div className="hidden lg:block relative">
         <DesktopNav />

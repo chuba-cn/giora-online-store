@@ -6,7 +6,7 @@ import { products } from "@/constants";
 const MainContent = () => {
     const num = [1,2,3,4,5];
   return (
-    <section className="lg:py-8 py-6 lg:pl-8 pl-5 w-full">
+    <section className="lg:py-8 py-6 lg:pl-8 pl-2 w-full">
       <div className="flex flex-col items-start justify-between space-y-8 w-full mb-6">
         <div className="lg:flex items-center justify-start gap-2 hidden">
           <House className="h-6 w-6 text-backgrounds-hover" />

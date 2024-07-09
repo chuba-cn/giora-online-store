@@ -29,20 +29,6 @@ const CheckoutProductCard = ({
           height={228}
           width={224}
         />
-
-        <div className="absolute bottom-2 right-2">
-          <button
-            className="bg-backgrounds-light p-1 rounded-full text-green-primary-normal border-2 border-green-primary-normal"
-            onMouseEnter={() => setHeartIconHover(true)}
-            onMouseLeave={() => setHeartIconHover(false)}
-          >
-            {heartIconHover ? (
-              <HeartIconSolid className="h-4 w-4" />
-            ) : (
-              <HeartIconOutline className="h-4 w-4" />
-            )}
-          </button>
-        </div>
       </div>
 
       {/* Product Detail */}
@@ -54,10 +40,10 @@ const CheckoutProductCard = ({
           )
         }
         <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">{price}</p>
-        <div className="flex gap-1 text-sm">
+        <div className="flex gap-1 text-xs lg:text-sm">
           <p className="font-nunitosans text-texts-normal">{color}</p>
           <p className="text-gray-400">|</p>
-          <p className="font-nunitosans  text-texts-normal">{size}</p>
+          <p className="font-nunitosans  text-texts-normal text-nowrap">{size}</p>
           <ChevronDown className="cursor-pointer h-5 w5 text-texts-normal"/>
           <p className="text-gray-400">|</p>
           <p className="font-nunitosans text-texts-normal">Qty</p>

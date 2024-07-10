@@ -103,7 +103,7 @@ const MobileNav = () => {
                   <SheetClose>
                     <p className="font-nunito text-lg hover:text-green-primary-normal transition-colors">Sign Up</p>
                   </SheetClose>
-                  <SheetClose>
+                  <SheetClose asChild>
                     <Link href="/cart" className="font-nunito text-lg hover:text-green-primary-normal transition-colors">My Cart</Link>
                   </SheetClose>
                 </div>

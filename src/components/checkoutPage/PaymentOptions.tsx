@@ -55,11 +55,13 @@ const PaymentOptions = () => {
               type="text"
               placeholder="Card Number"
               className="font-nunitosans text-[1rem]"
+              required
             />
             <Input
               type="text"
               placeholder="Name On Card"
               className="font-nunitosans text-[1rem]"
+              required
             />
           </div>
           <div className="flex flex-col lg:flex-row lg:gap-5 gap-4">
@@ -67,17 +69,19 @@ const PaymentOptions = () => {
               type="text"
               placeholder="MM / YY"
               className="font-nunitosans text-[1rem]"
+              required
             />
             <Input
               type="email"
               placeholder="Email Address"
               className="font-nunitosans text-[1rem]"
+              required
             />
           </div>
           <div className="flex flex-row gap-5 items-center">
             <Checkbox
               className="h-6 w-6 text-green-primary-normal inline border border-green-primary-normal"
-              id="save-details"
+              id="save-details" required
             />
             <label
               htmlFor="save-details"

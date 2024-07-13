@@ -9,9 +9,17 @@ import { cartItem } from "@/constants";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { useCart } from "../providers/CartProvider";
+import { FormEvent } from 'react';
 
 const MobileCheckout = () => {
   const router = useRouter();
+  const { cart } = useCart();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push('/checkout');
+  }
 
   return (
     <>
@@ -19,6 +27,7 @@ const MobileCheckout = () => {
         <MobileSubNav />
       </MaxWidthWrapper>
       <MaxWidthWrapper className="py-6">
+        <form onSubmit={(e) => handleSubmit(e)}>
         <div className="mb-10">
           <DeliveryOption />
         </div>
@@ -58,7 +67,7 @@ const MobileCheckout = () => {
                 </h1>
 
                 <div className="flex flex-col gap-6">
-                  {cartItem.map((item) => (
+                  {cart.map((item) => (
                     <div key={item.id}>
                       <div className="flex justify-start gap-6 ">
                         <div className="flex justify-center items-center relative ">
@@ -74,30 +83,25 @@ const MobileCheckout = () => {
                         {/* Product Detail */}
                         <div className="flex flex-col gap-2">
                           <p className="font-nunito font-bold text-texts-normal text-[1rem] ">
-                            {item.title}
+                            {item.name}
                           </p>
-                          {item.tag && (
-                            <p className="font-nunito font-bold text-brown-1 text-[0.75rem]">
-                              {item.tag}
-                            </p>
-                          )}
                           <p className="font-nunito font-bold text-texts-normal text-[1rem]">
                             {item.price}
                           </p>
                           <div className="flex gap-1 text-xs">
                             <p className="font-nunitosans text-texts-normal">
-                              {item.color}
+                              Black
                             </p>
                             <p className="text-gray-400">|</p>
                             <p className="font-nunitosans  text-texts-normal text-nowrap">
-                              {item.size}
+                              UK 12
                             </p>
                             <p className="text-gray-400">|</p>
                             <p className="font-nunitosans text-texts-normal">
                               Qty
                             </p>
                             <p className="font-nunitosans text-texts-normal">
-                              {item.qty}
+                              {item.quantity}
                             </p>
                           </div>
                         </div>
@@ -116,14 +120,16 @@ const MobileCheckout = () => {
           <PaymentOptions />
         </div>
 
-        <div>
+        
           <Button 
             className="mx-auto rounded-md bg-green-primary-dark text-backgrounds-light hover:bg-green-primary-normal transition-colors w-full mt-4"
-            onClick={() => router.push('/order-confirmed')}
+            type="submit"
           >
             Buy Now
           </Button>
-        </div>
+      
+        </form>
+        
       </MaxWidthWrapper>
     </>
   );

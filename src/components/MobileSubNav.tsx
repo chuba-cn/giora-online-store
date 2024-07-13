@@ -1,3 +1,5 @@
+'use client'
+
 import { ChevronDown, ChevronRight, CircleCheck, House } from "lucide-react";
 import React from "react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -5,8 +7,14 @@ import { Button } from "./ui/button";
 import { sidebarCategory, sidebarColor, sidebarStyle } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import CartIcon from "./Cart";
+import { usePathname } from "next/navigation";
 
 const MobileSubNav = () => {
+
+  const pathname = usePathname();
+  const isActive = pathname === "/cart" || pathname.startsWith("/cart");
+
   return (
     <div className="flex flex-col items-start justify-between space-y-8 py-7 w-full">
       <div className="flex items-center justify-start gap-2">
@@ -19,6 +27,9 @@ const MobileSubNav = () => {
         <h1 className="text-texts-normal font-bold font-nunito text-xl">
           Women Dresses
         </h1>
+        <Link href={'/cart'}>
+          <CartIcon isActive={isActive}/>
+        </Link>
         <div className="flex flex-row gap-6 items-center">
           <p className="font-bold font-nunito">Sort by</p>
           <Sheet>

@@ -4,8 +4,9 @@ import { navigation } from "@/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
-import { Heart, ShoppingCart, UserRound } from "lucide-react";
+import { Heart, UserRound } from "lucide-react";
 import { usePathname } from "next/navigation";
+import CartIcon from "./Cart";
 
 const DesktopNav = () => {
   const pathname = usePathname();
@@ -45,9 +46,7 @@ const DesktopNav = () => {
             <UserRound className="h-6 w-6 hover:text-green-primary-normal"/>
           </Link>
           <Link href="/cart">
-            <ShoppingCart className={cn("h-6 w-6 hover:text-green-primary-normal", {
-            "text-green-primary-normal" : isActive
-          })}/>
+            <CartIcon isActive={isActive}/>
           </Link>
         </div>
       </div>

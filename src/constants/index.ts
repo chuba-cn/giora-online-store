@@ -38,6 +38,7 @@ import {
   whatsapp,
   youtube
 } from "../../public/assets";
+import { FormattedResponse } from "@/hooks/usePaginatedProducts";
 
 const SKYBLUE = "#0CE5DD";
 const VIOLET = "#E50CC2";
@@ -184,7 +185,8 @@ export const sidebarColor = [
     color: GREY,
   },
 ];
-type Color =
+
+export type Color =
   | typeof SKYBLUE
   | typeof VIOLET
   | typeof PURPLE
@@ -322,35 +324,42 @@ export const products: Product[] = [
   },
 ];
 
-export const recommendations: Product[] = [
-  {
-    id: 1,
-    title: "Amanda Belfast Sleeveless",
-    description: "Women's dinner wear and summer dress",
-    price: "$50",
-    imgUrlOne: Prodcut4,
-    imgUrlTwo: product4OnHover,
-    colors: [NAVY, RED, LEMON, GREEN],
-  },
-  {
-    id: 2,
-    title: "Okonjo Iweala Dress",
-    description: "Women's corporate office dress",
-    price: "$60",
-    imgUrlOne: Prodcut5,
-    imgUrlTwo: product5OnHover,
-    colors: [YELLOW, VIOLET, SKYBLUE, GOLD],
-  },
-  {
-    id: 3,
-    title: "Giora Signature Summer Dress",
-    description: "Women's summer dress",
-    price: "$120",
-    imgUrlOne: Prodcut6,
-    imgUrlTwo: product6OnHover,
-    colors: [YELLOW, VIOLET, PURPLE, GOLD],
-  },
-];
+export const recommendations: FormattedResponse =  {
+  page: 1,
+  size: 3,
+  totalProducts:3,
+  PreviousPage: null,
+  nextPage: null,
+  items: [
+    {
+      id: "d4268fdb2f614f10ab51ac94a47855e7",
+      title: "Amanda Belfast Sleeveless",
+      description: "Women's dinner wear and summer dress",
+      price: 50,
+      imgUrl: "https://api.timbu.cloud/images/giora-online-store/product_amanda_belfast_sleeveless_b42071_1.jpg",
+      imgUrlTwo: "https://api.timbu.cloud/images/https://api.timbu.cloud/images/giora-online-store/product_amanda_belfast_sleeveless_7e5634_2.jpg",
+      colors: [NAVY, RED, LEMON, GREEN],
+    },
+    {
+      id: "6b624a8c50ac4c60a37954bb0a6029da",
+      title: "Okonjo Iweala Dress",
+      description: "Women's corporate office dress",
+      price: 60,
+      imgUrl: "https://api.timbu.cloud/images/giora-online-store/product_okonjo_iweala_dress_eae329_2.jpg",
+      imgUrlTwo: "https://api.timbu.cloud/images/giora-online-store/product_okonjo_iweala_dress_9776be_1.jpg",
+      colors: [YELLOW, VIOLET, SKYBLUE, GOLD],
+    },
+    {
+      id: "0b0c3f194651478da5da4b6052bc1231",
+      title: "Giora Signature Summer Dress",
+      description: "Women's summer dress",
+      price: 120,
+      imgUrl: "https://api.timbu.cloud/images/giora-online-store/product_giora_signature_summer_dress_39d4ae_2.jpg",
+      imgUrlTwo:"https://api.timbu.cloud/images/giora-online-store/product_giora_signature_summer_dress_7ba8bf_1.jpg",
+      colors: [YELLOW, VIOLET, PURPLE, GOLD],
+    },
+  ]
+}
 
 export const socials = [facebook, whatsapp, youtube, instagram, snapchat];
 

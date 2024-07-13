@@ -1,26 +1,37 @@
 "use client";
 
-import { Product } from "@/constants";
+import { Color } from "@/hooks/usePaginatedProducts";
 import { HeartIcon as HeartIconSolid, ShoppingCartIcon as ShoppingCartIconSolid } from "@heroicons/react/16/solid";
 import {HeartIcon as HeartIconOutline, ShoppingCartIcon as ShoppingCartIconOutline } from "@heroicons/react/24/outline";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "./providers/CartProvider";
+import { useToast } from "./ui/use-toast";
 
 const ProductCard = ({
+  id,
   title,
   description,
-  tag,
   price,
-  imgUrlOne,
+  imgUrl,
   imgUrlTwo,
   colors,
-}: Product) => {
+}: {
+  id: string,
+  title: string,
+  description: string | null,
+  price: number,
+  imgUrl: string,
+  imgUrlTwo: string,
+  colors: Color[] | string[]
+}) => {
   const [hover, setHover] = useState(false);
   const [heartIconHover, setHeartIconHover] = useState(false);
   const [cartIconHover, setCartIconHover] = useState(false);
-  const router = useRouter();
+  const { dispatch } = useCart();
+  const { toast } = useToast();
 
   return (
     <div className="flex flex-col gap-4 items-start justify-start">
@@ -30,7 +41,7 @@ const ProductCard = ({
         onMouseLeave={() => setHover(false)}
       >
         <Image
-          src={hover ? imgUrlTwo : imgUrlOne}
+          src={hover ? imgUrlTwo : imgUrl}
           alt="product image"
           width={348}
           height={348}
@@ -43,31 +54,45 @@ const ProductCard = ({
             onMouseEnter={() => setHeartIconHover(true)}
             onMouseLeave={() => setHeartIconHover(false)}
           >
-            {heartIconHover ? <HeartIconSolid className="h-4 w-4 lg:h-6 lg:w-6" /> : <HeartIconOutline className="h-4 w-4 lg:h-6 lg:w-6" />}
+            {heartIconHover ? (
+              <HeartIconSolid className="h-4 w-4 lg:h-6 lg:w-6" />
+            ) : (
+              <HeartIconOutline className="h-4 w-4 lg:h-6 lg:w-6" />
+            )}
           </button>
         </div>
 
         <div className="absolute bottom-2 left-2">
           <button
             className=" text-green-primary-normal bg-backgrounds-light p-1 rounded-full "
-            onClick={() => router.push("/cart")}
+            onClick={() => {
+              dispatch({ type: "ADD_TO_CART", payload: { id: id, name: title, price: price, quantity: 1, imgUrl: imgUrl}})
+              toast({
+                title: "Added to cart",
+                description: "Product added succesfully",
+                className: "bg-white text-[1.25rem] font-bold font-nunito"
+              })
+            }}
             onMouseEnter={() => setCartIconHover(true)}
             onMouseLeave={() => setCartIconHover(false)}
           >
-            {cartIconHover ? <ShoppingCartIconSolid className="h-4 w-4 lg:h-6 lg:w-6" /> : <ShoppingCartIconOutline className="h-4 w-4 lg:h-6 lg:w-6" />}
+            {cartIconHover ? (
+              <ShoppingCartIconSolid className="h-4 w-4 lg:h-6 lg:w-6" />
+            ) : (
+              <ShoppingCartIconOutline className="h-4 w-4 lg:h-6 lg:w-6" />
+            )}
           </button>
         </div>
       </div>
 
       <div className="flex flex-col justify-start items-start gap-2">
-        {tag && (
-          <p className="font-nunito font-bold lg:text-[1.25rem] text-orange-secondary-normal">
-            {tag}
+        <Link
+          href={`/products/${id}`}
+        >
+          <p className="font-nunito font-bold lg:text-[1.25rem] text-texts-dark hover:text-green-primary-dark">
+            {title}
           </p>
-        )}
-        <p className="font-nunito font-bold lg:text-[1.25rem] text-texts-dark">
-          {title}
-        </p>
+        </Link>
         <p className="font-nunito text-[0.75rem] lg:text-[1rem] font-bold text-backgrounds-darker">
           {description}
         </p>
@@ -81,7 +106,7 @@ const ProductCard = ({
           ))}
         </div>
         <p className="font-nunito font-bold lg:text-[1.25rem] text-texts-dark">
-          {price}
+          ${price}
         </p>
       </div>
     </div>

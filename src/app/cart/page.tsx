@@ -1,3 +1,5 @@
+"use client"
+
 import DesktopCart from '@/components/DesktopCart';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import MobileCart from '@/components/MobileCart';
@@ -5,6 +7,7 @@ import ProductsList from '@/components/ProductsList';
 import { recommendations } from '@/constants';
 
 const page = () => {
+
   return (
     <div>
       <div className='hidden lg:block'>

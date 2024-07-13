@@ -7,10 +7,18 @@ import PaymentOptions from "./PaymentOptions";
 import { cartItem } from "@/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useCart } from "../providers/CartProvider";
 
 const DesktopCheckout = () => {
 
-    const router = useRouter();
+  const { cart } = useCart();
+
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  const router = useRouter();
 
   return (
     <div className="py-14">
@@ -54,7 +62,7 @@ const DesktopCheckout = () => {
             <div className="flex flex-col justify-between gap-6 w-full">
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Sub-total</p>
-                <p>$160</p>
+                <p>${totalPrice}</p>
               </div>
               <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                 <p>Shipping</p>
@@ -66,7 +74,7 @@ const DesktopCheckout = () => {
               </div>
               <div className="w-full flex justify-between font-nunito font-bold text-[1.25rem] text-texts-normal">
                 <p>Total</p>
-                <p>$160</p>
+                <p>${totalPrice}</p>
               </div>
             </div>
           </div>
@@ -78,7 +86,7 @@ const DesktopCheckout = () => {
               </h1>
 
               <div className="flex flex-col gap-6">
-                {cartItem.map((item) => (
+                {cart.map((item) => (
                   <div key={item.id}>
                     <div className="flex justify-start gap-6 ">
                       <div className="flex justify-center items-center relative ">
@@ -94,30 +102,25 @@ const DesktopCheckout = () => {
                       {/* Product Detail */}
                       <div className="flex flex-col gap-2">
                         <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">
-                          {item.title}
+                          {item.name}
                         </p>
-                        {item.tag && (
-                          <p className="font-nunito font-bold text-brown-1 text-[0.75rem] lg:text-[1.25rem]">
-                            {item.tag}
-                          </p>
-                        )}
                         <p className="font-nunito font-bold text-texts-normal text-[1rem] lg:text-[1.25rem]">
-                          {item.price}
+                          ${item.price}
                         </p>
                         <div className="flex gap-1 text-xs lg:text-sm">
                           <p className="font-nunitosans text-texts-normal">
-                            {item.color}
+                            black
                           </p>
                           <p className="text-gray-400">|</p>
                           <p className="font-nunitosans  text-texts-normal text-nowrap">
-                            {item.size}
+                            UK 12
                           </p>
                           <p className="text-gray-400">|</p>
                           <p className="font-nunitosans text-texts-normal">
                             Qty
                           </p>
                           <p className="font-nunitosans text-texts-normal">
-                            {item.qty}
+                            {item.quantity}
                           </p>
                         </div>
                       </div>

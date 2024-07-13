@@ -1,11 +1,14 @@
-import React from "react";
-import CheckoutProductCard from "./CheckoutProductCard";
-import { cartItem } from "@/constants";
+'use client'
 
-const CheckoutCardList = () => {
+import { useCart } from "../providers/CartProvider";
+import CheckoutProductCard from "./CheckoutProductCard";
+
+const CheckoutCardList = ({ totalProducts }: { totalProducts: number}) => {
+  const { cart, dispatch } = useCart();
+
   return (
     <div className="flex flex-col gap-6">
-      {cartItem.map((item) => (
+      {cart.map((item) => (
         <CheckoutProductCard key={item.id} {...item} />
       ))}
     </div>

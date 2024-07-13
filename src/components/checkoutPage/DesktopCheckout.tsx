@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import DeliveryOption from "./DeliveryOption";
 import DeliveryAddress from "./DeliveryAddress";
 import PaymentOptions from "./PaymentOptions";
-import { cartItem } from "@/constants";
+import { FormEvent } from 'react';
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCart } from "../providers/CartProvider";
@@ -18,6 +18,11 @@ const DesktopCheckout = () => {
     0
   );
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push('/order-confirmed');
+  }
+
   const router = useRouter();
 
   return (
@@ -27,7 +32,7 @@ const DesktopCheckout = () => {
       </p>
       <div className="grid grid-cols-2 space-x-5 w-full">
         {/* left Side */}
-        <div>
+        <form onSubmit={(e) => handleSubmit(e)}>
           {/* Delivery Details */}
           <div className=" flex flex-col gap-8 w-full py-4 border-b-2 border-gray-300">
             <DeliveryOption />
@@ -43,12 +48,12 @@ const DesktopCheckout = () => {
           <div className="px-3">
             <Button 
               className="mx-auto rounded-md bg-green-primary-dark text-backgrounds-light hover:bg-green-primary-normal transition-colors w-full mt-4"
-              onClick={() => router.push('/order-confirmed')}
+              type="submit"
             >
               Buy Now
             </Button>
           </div>
-        </div>
+        </form>
 
         {/* Right Side */}
         <div>

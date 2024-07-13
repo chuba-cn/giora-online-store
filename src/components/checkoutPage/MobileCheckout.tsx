@@ -5,7 +5,6 @@ import MobileSubNav from "./MobileSubNav";
 import DeliveryOption from "./DeliveryOption";
 import DeliveryAddress from "./DeliveryAddress";
 import PaymentOptions from "./PaymentOptions";
-import { cartItem } from "@/constants";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
@@ -16,9 +15,14 @@ const MobileCheckout = () => {
   const router = useRouter();
   const { cart } = useCart();
 
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push('/checkout');
+    router.push('/order-confirmed');
   }
 
   return (
@@ -43,7 +47,7 @@ const MobileCheckout = () => {
               <div className="flex flex-col justify-between gap-6 w-full">
                 <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                   <p>Sub-total</p>
-                  <p>$160</p>
+                  <p>${totalPrice}</p>
                 </div>
                 <div className="w-full flex justify-between font-nunito font-normal text-[1.25rem] text-texts-normal">
                   <p>Shipping</p>
@@ -55,7 +59,7 @@ const MobileCheckout = () => {
                 </div>
                 <div className="w-full flex justify-between font-nunito font-bold text-[1.25rem] text-texts-normal">
                   <p>Total</p>
-                  <p>$160</p>
+                  <p>${totalPrice}</p>
                 </div>
               </div>
             </div>

@@ -109,7 +109,7 @@ const ProductPage = () => {
             onClick={() => {
               dispatch({
                 type: "ADD_TO_CART",
-                payload: { id: data?.id!, name: data?.name!, price: data?.price!, quantity: 1, imgUrl: data?.imgURL!},
+                payload: { id: data?.id!, name: data?.name!, price: data?.price!, quantity: 1, imgUrl: `https://api.timbu.cloud/images/${data?.imgURL!}`},
               });
               toast({
                 title: "Added to cart",
